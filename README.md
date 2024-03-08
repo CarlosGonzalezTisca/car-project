@@ -51,6 +51,31 @@ Para comprobar instalacion
 ```bash
 composer -V
 ```
+# RUN DOCKER FOR MYSQL SERVICE AND ADMINER
+**Antes de correr el comando es importante ya contar con el archivo .env configurado.
+
+Instalar Docker and Docker Compose y levantar el contenedor con el comando
+
+```bash
+docker compose up --build
+```
+
+para comprobar que el servicio esta corriendo correctamente 
+
+```bash
+http://localhost:$LARAVEL_LOCAL_PORT
+```
+
+Adminer
+```bash
+http://localhost:8080
+```
+
+comprobar coneccion a la base de datos
+Abrir Adminer
+colocar server mysqldb que es donde se esta corriendo el servidor de mysql por parte de Docker.
+colocar crdenciales y verificar coneccion
 
 
+## CONSUMO DE LA API
 
