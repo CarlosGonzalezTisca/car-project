@@ -76,6 +76,10 @@ Abrir Adminer
 colocar server mysqldb que es donde se esta corriendo el servidor de mysql por parte de Docker.
 colocar crdenciales y verificar coneccion
 
-
+## PARA LA CREACION DE LA TABLA Y CONECCION A LA BASE DE DATOS
+```bash
+docker exec -it sh
+php artisan migrate
+```
 ## CONSUMO DE LA API
 
