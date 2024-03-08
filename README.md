@@ -83,3 +83,36 @@ php artisan migrate
 ```
 ## CONSUMO DE LA API
 
+Endpoints
+# USER AUTH 
+
+POST
+login
+```bash
+http://localhost:9000/api/login
+```
+Request Header
+
+```bash
+Accept: aplication/json
+```
+
+POST
+register
+```bash
+http://localhost:9000/api/register
+```
+
+GET
+profile
+Authoritazion Bearer Token
+example
+```bash
+Token:eyahhsggd898733474....
+```
+```bash
+http://localhost:9000/api/profile
+```
+### PARA VER LA DOCUMENTACION COMPLETA
+- [Doc](https://documenter.getpostman.com/view/32725470/2sA2xh2Cyu)
+
