@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\CarController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,16 +21,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-use App\Http\Controllers\Api\ApiController;
 
-Route::post("register", [ApiController::class, "register"]);
-Route::post("login", [ApiController::class, "login"]);
 
-Route::group([
-    "middleware" => ["auth:api"]
-], function(){
 
-    Route::get("profile", [ApiController::class, "profile"]);
-    Route::get("refresh", [ApiController::class, "refreshToken"]);
-    Route::get("logout", [ApiController::class, "logout"]);
+$router->post('login', [ApiController::class, 'login']);
+
+$router->post('register', [ApiController::class, 'register']);
+
+$router->group(['middleware' => ['auth:api']], function () use ($router) {
+
+    $router->post('logout', [ApiController::class, 'logout']);
+
+    $router->get('refresh', [ApiController::class, 'RefreshToken']);
+
+    $router->get('profile', [ApiController::class, 'profile']);
+});
+
+//FOR CAR SERVICES
+$router->group(['prefix' => 'car', 'middleware' => ['auth:api']], function () use ($router) {
+    $router->post('create', [CarController::class, 'create']);
+    $router->get('retrive', [CarController::class,'index']);
 });
