@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
@@ -15,9 +16,9 @@ class ApiController extends Controller
         
         // data validation
         $request->validate([
-            "name" => "required",
+            "name" => "required|max:255|string",
             "email" => "required|email|unique:users",
-            "password" => "required|confirmed"
+            "password" => "required|confirmed|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/"
         ]);
 
         // User Model
@@ -37,7 +38,6 @@ class ApiController extends Controller
     // User Login (POST, formdata)
     public function login(Request $request){
         
-        // data validation
         $request->validate([
             "email" => "required|email",
             "password" => "required"
@@ -49,18 +49,22 @@ class ApiController extends Controller
             "password" => $request->password
         ]);
 
-        if(!empty($token)){
+        if(empty($token)){
 
-            return response()->json([
-                "status" => true,
-                "message" => "User logged in succcessfully",
-                "token" => $token
-            ]);
+            return response()->json(['errors' => true, 'message' => 'Error de autenticación'], 401);
         }
 
+       return $this->respondWithToken($token);
+    }
+
+    protected function respondWithToken($token)
+    {
+
         return response()->json([
-            "status" => false,
-            "message" => "Invalid details"
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => JWTAuth::factory()->getTTL() * 60 * 12 . "s",
+            'user' => Auth::user() -> email
         ]);
     }
 
