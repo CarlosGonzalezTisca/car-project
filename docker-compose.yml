@@ -11,6 +11,10 @@ services:
     working_dir: /var/www
     tty: true
     stdin_open: true
+    ports:
+      - $VUE_LOCAL_PORT:$VUE_DOCKER_PORT
+    command: npm run dev
+
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
