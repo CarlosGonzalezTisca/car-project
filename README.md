@@ -119,3 +119,17 @@ http://localhost:9000/api/profile
 
 ## SERVING VUEJS WITH VITE 
 
+correr dentro del contenedor 
+
+```bash
+npm i vue vue-loader
+```
+
+para el plugin de vite correr el comando
+
+```bash
+npm install @vitejs/plugin-vue
+```
+
+
+
