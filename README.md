@@ -7,11 +7,12 @@ API con Laravel para mostrar datos de carros y utilizar API de Google Maps:
 
 - [PHP](https://www.php.net/manual/en/install.php)
 - [Laravel](https://laravel.com/docs/10.x)
-- [Composer] (https://getcomposer.org/download/)
+- [Composer](https://getcomposer.org/download/)
 - [Eloquent](https://laravel.com/docs/10.x/eloquent)
 - [Vuejs](https://vuejs.org/)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Vite](https://es.vitejs.dev/guide/backend-integration)
 
 # PRE INSTALL
 
@@ -115,4 +116,6 @@ http://localhost:9000/api/profile
 ```
 ### PARA VER LA DOCUMENTACION COMPLETA
 - [Doc](https://documenter.getpostman.com/view/32725470/2sA2xh2Cyu)
+
+## SERVING VUEJS WITH VITE 
 

@@ -3,6 +3,14 @@ version:
 
   # SERVICIO PARA MYSQL
 services:
+  nodejs:
+    image: node:20.11.1
+    restart: unless-stopped
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    tty: true
+    stdin_open: true
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
