@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
  
+use App\Helpers\ResponseWith;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -14,25 +15,26 @@ class ApiController extends Controller
     // User Register (POST, formdata)
     public function register(Request $request){
         
-        // data validation
-        $request->validate([
+  try {
+          // data validation
+          $request->validate([
             "name" => "required|max:255|string",
             "email" => "required|email|unique:users",
             "password" => "required|confirmed|string|min:8|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/"
         ]);
 
         // User Model
-        User::create([
+        $data = User::create([
             "name" => $request->name,
             "email" => $request->email,
             "password" => Hash::make($request->password)
         ]);
 
         // Response
-        return response()->json([
-            "status" => true,
-            "message" => "User registered successfully"
-        ]);
+    return ResponseWith::success($data);
+  } catch (\Throwable $th) {
+    return ResponseWith::error($th);
+  }
     }
 
     // User Login (POST, formdata)
