@@ -61,6 +61,7 @@
           });
           this.showMessageSuccess = true;
           this.message = "Registro exitoso";
+          this.$router.push('/login');
         } catch (error) {
           const errorMessage = error.response?.data?.error || "Ha ocurrido un error durante el registro";
           this.errorMessage = errorMessage;

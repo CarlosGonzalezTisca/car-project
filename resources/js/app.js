@@ -7,5 +7,11 @@ import "../css/app.css";
 
 axios.defaults.baseURL = "http://localhost:9000/";
 
+const token = localStorage.getItem('token');
+
+if(token){
+    axios.defaults.headers.common['Authorization'] = 'Bearer' + token;
+}
+
 
 createApp(App).use(router).use(VueAxios, axios).mount("#app");

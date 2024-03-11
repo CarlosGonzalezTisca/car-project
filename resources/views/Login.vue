@@ -70,8 +70,12 @@ export default {
           password: this.password
         },
         )
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer' + response.data.access_token;
+        localStorage.setItem('token', response.data.access_token);
         this.showMessageSuccess = true;
         this.message = "Welcome!";
+        window.location.reload();
+        this.$router.push('/home');
       } catch (error) {
         const errorMessage = error.response.data?.message || "Ha ocurrido un error";
           this.errorMessage = errorMessage;

@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
             \Illuminate\Http\Middleware\HandleCors::class,
 
 
+
         ],
     ];
 
