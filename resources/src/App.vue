@@ -94,7 +94,7 @@ export default {
       this.$router.push("/home");
     },
     tomap() {
-      this.$router.push("/map");
+      this.$router.push("/maps");
     },
   },
   watch: {

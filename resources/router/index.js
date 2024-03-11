@@ -3,6 +3,7 @@ import Login from '../views/Login.vue';
 import Cars from '../views/Cars.vue';
 import Register from '../views/Register.vue';
 import Home from '../views/Home.vue';
+import Maps from '../views/Maps.vue'
 
 const routes = [
     {
@@ -26,6 +27,11 @@ const routes = [
         path:'/home',
         name:'home',
         component: Home
+    },
+    {
+        path:'/maps',
+        name:'maps',
+        component: Maps
     }
 ];
 

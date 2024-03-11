@@ -19,6 +19,7 @@
         "vue": "^3.4.21",
         "vue-axios": "^3.5.2",
         "vue-loader": "^17.4.2",
-        "vue-router": "^4.0.13"
+        "vue-router": "^4.0.13",
+        "vue2-google-maps": "^0.10.7"
     }
 }
