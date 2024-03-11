@@ -131,5 +131,16 @@ para el plugin de vite correr el comando
 npm install @vitejs/plugin-vue
 ```
 
+La aplicacion contiene la API de Google.
 
+- [Maps](https://es.vuejs.org/v2/cookbook/practical-use-of-scoped-slots.html)
+
+#VISTAS
+
+/ -> Home,
+/login -> iniciar sesion
+/register -> registrar usuario
+/logut -> cerrar sesion
+/home -> Carros
+/maps -> Mapa
 
